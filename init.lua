@@ -1,1 +1,4 @@
-require("katalysatorn.init");
+require("katalysatorn.init")
+
+-- Include preffered vim settings
+
