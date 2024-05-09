@@ -19,13 +19,10 @@ require('lazy').setup({
 	{ 'williamboman/mason-lspconfig' },
 	{ 'VonHeikemen/lsp-zero.nvim' },
 	{ 'neovim/nvim-lspconfig' },
+	{ 'ms-jpq/coq_nvim' },
+	{ 'ms-jpq/coq.artifacts' },
+	{ 'ms-jpq/coq.thirdparty' },
 	{ 'hrsh7th/cmp-nvim-lsp' },
 	{ 'hrsh7th/nvim-cmp' },
 	{ 'windwp/nvim-autopairs', event = 'InsertEnter', config = true },
-	{ 'folke/noice.nvim',
-		dependencies = {
-			'MunifTanjim/nui.nvim',
-			'rcarriga/nvim-notify',
-		}
-	}
 })

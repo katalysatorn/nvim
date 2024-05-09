@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
 -- Go back to file tree (:Ex)
-vim.keymap.set("n", "<leader>fv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- In visual mode move lines up or down when selected
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

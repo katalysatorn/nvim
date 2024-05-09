@@ -1,37 +1,38 @@
-local lsp = require("lsp-zero")
-local cmp = require("cmp")
-local cmp_action = require("lsp-zero").cmp_action()
+local lsp_zero = require('lsp-zero')
+local lspconfig = require('lspconfig')
+lspconfig.intelephense.setup({})
 
-lsp.preset('recommended')
+vim.g.coq_settings = {
+	auto_start = 'shut-up',
+	keymap = {
+		pre_select = true
+	}
+}
+local coq = require('coq')
 
-cmp.setup({
-	mapping = cmp.mapping.preset.insert({
-		['<Tab>'] = cmp.mapping.confirm({select = false}),
-	})
-})
-
-lsp.on_attach(function(_client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp.default_keymaps({buffer = bufnr})
+lsp_zero.on_attach(function(client, bufnr)
+  lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
-lsp.on_attach(function(_client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp.default_keymaps({buffer = bufnr})
-end)
-
--- to learn how to use mason.nvim
--- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guide/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { 'html', 'rust_analyzer', 'gopls', 'markdown_oxide' },
-  handlers = {
-    function(server_name)
-      require('lspconfig')[server_name].setup({})
-    end,
-  },
+	ensure_installed = {
+		'clangd',
+		'cmake',
+		'gopls',
+		'jsonls',
+		'kotlin_language_server',
+		'lua_ls',
+		'markdown_oxide',
+		'nil_ls',
+		'pyright',
+		'pylsp',
+	},
+	handlers = {
+		function(server_name)
+			lspconfig[server_name].setup(coq.lsp_ensure_capabilities({}))
+		end,
+	},
 })
 
-lsp.setup()
+lsp_zero.setup()
