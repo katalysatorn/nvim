@@ -25,18 +25,20 @@ require('lazy').setup({
 	{ 'hrsh7th/cmp-nvim-lsp' },
 	{ 'hrsh7th/nvim-cmp' },
 	{ 'windwp/nvim-autopairs', event = 'InsertEnter', config = true },
-	{  'folke/noice.nvim',
-		  event = 'VeryLazy',
-		  opts = {
-			-- add any options here
-		  },
-		  dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module='...'` entries
+	{
+		'folke/noice.nvim',
+		event = 'VeryLazy',
+		opts = {
+		
+		},
+		dependencies = {
+		-- if you lazy-load any plugin below, make sure to add proper `module='...'` entries
 			'MunifTanjim/nui.nvim',
 			'rcarriga/nvim-notify',
 		}
 	},
-	{ 'utilyre/barbecue.nvim',
+	{
+		'utilyre/barbecue.nvim',
 		name = 'barbecue',
 		version = '*',
 		dependencies = {
@@ -84,7 +86,8 @@ require('lazy').setup({
             }
         end,
     },
-	{ 'romgrk/barbar.nvim',
+	{
+		'romgrk/barbar.nvim',
 		dependencies = {
 			'lewis6991/gitsigns.nvim',
 			'nvim-tree/nvim-web-devicons'
