@@ -25,4 +25,73 @@ require('lazy').setup({
 	{ 'hrsh7th/cmp-nvim-lsp' },
 	{ 'hrsh7th/nvim-cmp' },
 	{ 'windwp/nvim-autopairs', event = 'InsertEnter', config = true },
+	{  'folke/noice.nvim',
+		  event = 'VeryLazy',
+		  opts = {
+			-- add any options here
+		  },
+		  dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module='...'` entries
+			'MunifTanjim/nui.nvim',
+			'rcarriga/nvim-notify',
+		}
+	},
+	{ 'utilyre/barbecue.nvim',
+		name = 'barbecue',
+		version = '*',
+		dependencies = {
+			'SmiteshP/nvim-navic',
+			'nvim-tree/nvim-web-devicons',
+		},
+	},
+	{
+        'sontungexpt/sttusline',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+        },
+        event = { 'BufEnter' },
+        config = function(_, opts)
+            require('sttusline').setup {
+                -- statusline_color = '#000000',
+                statusline_color = 'StatusLine',
+
+                -- | 1 | 2 | 3
+                -- recommended: 3
+                laststatus = 3,
+                disabled = {
+                    filetypes = {
+                        -- 'NvimTree',
+                        -- 'lazy',
+                    },
+                    buftypes = {
+                        -- 'terminal',
+                    },
+                },
+                components = {
+                    'mode',
+                    'filename',
+                    'git-branch',
+                    'git-diff',
+                    '%=',
+                    'diagnostics',
+                    'lsps-formatters',
+                    'copilot',
+                    'indent',
+                    'encoding',
+                    'pos-cursor',
+                    'pos-cursor-progress',
+                },
+            }
+        end,
+    },
+	{ 'romgrk/barbar.nvim',
+		dependencies = {
+			'lewis6991/gitsigns.nvim',
+			'nvim-tree/nvim-web-devicons'
+		},
+		init = function() vim.g.barbar_auto_setup = false end,
+		opts = {
+
+		}
+	}
 })
