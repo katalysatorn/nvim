@@ -29,7 +29,6 @@ require('lazy').setup({
 		'folke/noice.nvim',
 		event = 'VeryLazy',
 		opts = {
-		
 		},
 		dependencies = {
 		-- if you lazy-load any plugin below, make sure to add proper `module='...'` entries
@@ -47,54 +46,9 @@ require('lazy').setup({
 		},
 	},
 	{
-        'sontungexpt/sttusline',
-        dependencies = {
-            'nvim-tree/nvim-web-devicons',
-        },
-        event = { 'BufEnter' },
-        config = function(_, opts)
-            require('sttusline').setup {
-                -- statusline_color = '#000000',
-                statusline_color = 'StatusLine',
-
-                -- | 1 | 2 | 3
-                -- recommended: 3
-                laststatus = 3,
-                disabled = {
-                    filetypes = {
-                        -- 'NvimTree',
-                        -- 'lazy',
-                    },
-                    buftypes = {
-                        -- 'terminal',
-                    },
-                },
-                components = {
-                    'mode',
-                    'filename',
-                    'git-branch',
-                    'git-diff',
-                    '%=',
-                    'diagnostics',
-                    'lsps-formatters',
-                    'copilot',
-                    'indent',
-                    'encoding',
-                    'pos-cursor',
-                    'pos-cursor-progress',
-                },
-            }
-        end,
-    },
-	{
-		'romgrk/barbar.nvim',
+		'nvim-lualine/lualine.nvim',
 		dependencies = {
-			'lewis6991/gitsigns.nvim',
-			'nvim-tree/nvim-web-devicons'
+			'nvim-tree/nvim-web-devicons',
 		},
-		init = function() vim.g.barbar_auto_setup = false end,
-		opts = {
-
-		}
 	}
 })
