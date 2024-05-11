@@ -22,6 +22,10 @@ require('lazy').setup({
 	{ 'ms-jpq/coq_nvim' },
 	{ 'ms-jpq/coq.artifacts' },
 	{ 'ms-jpq/coq.thirdparty' },
+	{
+		'L3MON4D3/luasnip',
+		build = 'make install_jsregexp'
+	},
 	{ 'hrsh7th/cmp-nvim-lsp' },
 	{ 'hrsh7th/nvim-cmp' },
 	{ 'windwp/nvim-autopairs', event = 'InsertEnter', config = true },

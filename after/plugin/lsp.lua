@@ -2,6 +2,15 @@ local lsp_zero = require('lsp-zero')
 local lspconfig = require('lspconfig')
 lspconfig.intelephense.setup({})
 
+local cmp = require('cmp')
+local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_mappings = lsp_zero.defaults.cmp_mappings({
+	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+	['<C-y>'] = cmp.mapping.confirm({ select = true }),
+	["<C-Space>"] = cmp.mapping.complete(),
+})
+
 vim.g.coq_settings = {
 	auto_start = 'shut-up',
 	keymap = {
@@ -34,5 +43,6 @@ require('mason-lspconfig').setup({
 		end,
 	},
 })
+
 
 lsp_zero.setup()
