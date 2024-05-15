@@ -29,12 +29,9 @@ require('mason-lspconfig').setup({
 		'clangd',
 		'cmake',
 		'gopls',
-		'jsonls',
 		'kotlin_language_server',
 		'lua_ls',
 		'markdown_oxide',
-		'nil_ls',
-		'pyright',
 		'pylsp',
 	},
 	handlers = {
